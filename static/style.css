@@ -178,3 +178,32 @@ h1{
 chart{
   margin: 0 auto;
 }
+
+.data-table{
+  padding-top: 30px;
+}
+
+.data-table table{
+  margin: auto;
+  text-align: center;
+}
+
+.data-table table th,td{
+  padding-left: 20px;
+  padding-top: 2px;
+}
+
+.data-table-btn{
+  margin: auto;
+  text-align: center;
+  padding: 15px;
+}
+.data-table-btn:hover{
+  color: black;
+  background-color: blanchedalmond;
+  border: 1px 1px black;
+}
+
+#datatable{
+  display: none;
+}

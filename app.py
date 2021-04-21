@@ -69,7 +69,11 @@ def show_all():
 	values = df['count'].to_list()
 	bar_labels = labels
 	bar_values = values
-	return render_template('bar_chart.html',title='IPL Prediction Poll 2021', max=25, labels=bar_labels, values=bar_values)
+
+	players = PlayerModel.query.all()
+	#print(players)
+
+	return render_template('bar_chart.html',title='IPL Prediction Poll 2021', max=25, labels=bar_labels, values=bar_values,players=players)
 
 if __name__ == '__main__':
 	app.run(debug=True)

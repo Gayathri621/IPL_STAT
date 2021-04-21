@@ -1,8 +1,18 @@
 {% extends "base.html" %}
   <!-- <meta charset="utf-8" /> -->
 {% block title %}{{ title }}{% endblock %}
-{% block script_js %}<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>{% endblock %}
+{% block script_js %}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".data-table-btn").click(function(){
+    $("#datatable").toggle();
+  });
+});
+</script>
 
+{% endblock %}
 {% block content %}
 <div class="result">
 
@@ -50,5 +60,26 @@
      );
 
     </script>
-</div>
+
+    <div class = "data-table">
+    <button onclick="myFunction()" class="data-table-btn">Show/Hide All Votes</button>
+    <table id="datatable">
+      <thead>
+        <tr>
+            <th>Favorite Player</th>
+            <th>Predicted team for cup</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for player in players %}
+            <tr>
+              <td>{{ player.fav_player_name }}</td>
+              <td>{{ player.predicted_team_for_cup }}</td>
+            </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  </div>
 {% endblock %}
